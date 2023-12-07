@@ -1,0 +1,8 @@
+on: push
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3.0.2
+    - uses: cachix/install-nix-action@v17
+    - run: nix run .#tests -- ./tests/workspace
